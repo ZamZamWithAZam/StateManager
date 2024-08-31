@@ -2,12 +2,18 @@ running = True
 living = True
 
 def livingLoop(living):
-    if living:
-        if input("Do you wish to kill it (y/n) ? \n>").lower() == "y":
-            print("You have decided to end it...End...\"It\"")
+    while living:
+        
+        playerInput = input("Do you wish to kill it (y/n) ?\n>").lower()
+
+        if playerInput == "y":
+            print("\nYou have decided to end it...End...\"It\"")
             return False
+        elif playerInput == "n":
+            print("\nNone were harmed, \"It\" continues on...\n")
         else:
-            return True
+            print("\nDid you give any input?\nFor all I got waas that which cannot be deciphered...\n")
+
         
 
 def transition(num : int):
@@ -40,7 +46,7 @@ def manager(*args):
 
         currentLoop
 
-        currentLoop = transitions[finishedStates](finishedStates+1)
+        currentLoop = transitions[0](finishedStates+1)
 
         currentLoop
 
@@ -48,7 +54,8 @@ def manager(*args):
 
     print("The \"End\" of all, has been reached.\n"
          "Yet question \"It\"...\n"
-         "Whether \"It\" shall remain\n")
+         "Whether \"It\" shall remain...\n"
+         "Oh shall it remain...\n")
 
 
 while running:
@@ -56,7 +63,6 @@ while running:
         livingLoop,
         livingLoop,
         0,
-        transition,
         transition
     )
 
